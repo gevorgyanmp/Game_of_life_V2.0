@@ -66,7 +66,7 @@ function draw() {
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 2) {
-                fill("yellow");
+                fill("pink");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 3) {
