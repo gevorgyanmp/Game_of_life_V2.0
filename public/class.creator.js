@@ -1,84 +1,15 @@
-class Creator {
+class Creator extends Mother {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+       super(x,y)
         this.energy = 5;
         this.multiply = 0;
-        this.createDirections = [
-            [this.x - 2, this.y - 2],
-            [this.x - 2, this.y - 1],
-            [this.x - 2, this.y],
-            [this.x - 2, this.y + 1],
-            [this.x - 2, this.y + 2],
-            [this.x - 1, this.y - 2],
-            [this.x - 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x - 1, this.y + 2],
-            [this.x, this.y - 2],
-            [this.x, this.y - 1],
-            [this.x, this.y + 1],
-            [this.x, this.y + 2],
-            [this.x + 1, this.y - 2],
-            [this.x + 1, this.y - 1],
-            [this.x + 1, this.y],
-            [this.x + 1, this.y + 1],
-            [this.x + 1, this.y + 2],
-            [this.x + 2, this.y - 2],
-            [this.x + 2, this.y - 1],
-            [this.x + 2, this.y],
-            [this.x + 2, this.y + 1],
-            [this.x + 2, this.y + 2],
-        ];
-
     }
-    stanalStexcmaniKordinatner() {
-        this.huntDirections = [
-            [this.x - 2, this.y - 2],
-            [this.x - 2, this.y - 1],
-            [this.x - 2, this.y],
-            [this.x - 2, this.y + 1],
-            [this.x - 2, this.y + 2],
-            [this.x - 1, this.y - 2],
-            [this.x - 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x - 1, this.y + 2],
-            [this.x, this.y - 2],
-            [this.x, this.y - 1],
-            [this.x, this.y + 1],
-            [this.x, this.y + 2],
-            [this.x + 1, this.y - 2],
-            [this.x + 1, this.y - 1],
-            [this.x + 1, this.y],
-            [this.x + 1, this.y + 1],
-            [this.x + 1, this.y + 2],
-            [this.x + 2, this.y - 2],
-            [this.x + 2, this.y - 1],
-            [this.x + 2, this.y],
-            [this.x + 2, this.y + 1],
-            [this.x + 2, this.y + 2],
-        ];
-
-    }
-    yntrelStexcmanVandak(ch) {
-        this.stanalStexcmaniKordinatner();
-        var found = [];
-        for (var i in this.createDirections) {
-            var x = this.createDirections[i][0];
-            var y = this.createDirections[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == ch) {
-                    found.push(this.createDirections[i]);
-                }
-            }
-        }
-        return found;
-    }
+    
+    
     stexcel() {
         this.multiply++;
-        var datarkvandak = random(this.yntrelStexcmanVandak(0))
-        var datarkvandak1 = random(this.yntrelStexcmanVandak(1))
+        var datarkvandak = random(this.yntrelVandak2(0))
+        var datarkvandak1 = random(this.yntrelVandak2(1))
         if (this.multiply >= 30) {
             if (this.energy > 1 && datarkvandak) {
                 matrix[datarkvandak[1]][datarkvandak[0]] = 1

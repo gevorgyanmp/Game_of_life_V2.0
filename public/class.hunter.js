@@ -1,121 +1,15 @@
-class Hunter {
+class Hunter extends Mother {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+       super(x,y);
         this.life = 3;
         this.multiply = 0;
         this.huntmulti = 0;
         this.squibmulti = 0;
-        this.huntDirections = [
-            [this.x - 2, this.y - 2],
-            [this.x - 2, this.y - 1],
-            [this.x - 2, this.y],
-            [this.x - 2, this.y + 1],
-            [this.x - 2, this.y + 2],
-            [this.x - 1, this.y - 2],
-            [this.x - 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x - 1, this.y + 2],
-            [this.x, this.y - 2],
-            [this.x, this.y - 1],
-            [this.x, this.y + 1],
-            [this.x, this.y + 2],
-            [this.x + 1, this.y - 2],
-            [this.x + 1, this.y - 1],
-            [this.x + 1, this.y],
-            [this.x + 1, this.y + 1],
-            [this.x + 1, this.y + 2],
-            [this.x + 2, this.y - 2],
-            [this.x + 2, this.y - 1],
-            [this.x + 2, this.y],
-            [this.x + 2, this.y + 1],
-            [this.x + 2, this.y + 2],
-        ];
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
-
     }
 
-    stanalNorKordinatner() {
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
-    }
-    stanalVorsiKordinatner() {
-        this.huntDirections = [
-            [this.x - 2, this.y - 2],
-            [this.x - 2, this.y - 1],
-            [this.x - 2, this.y],
-            [this.x - 2, this.y + 1],
-            [this.x - 2, this.y + 2],
-            [this.x - 1, this.y - 2],
-            [this.x - 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x - 1, this.y + 2],
-            [this.x, this.y - 2],
-            [this.x, this.y - 1],
-            [this.x, this.y + 1],
-            [this.x, this.y + 2],
-            [this.x + 1, this.y - 2],
-            [this.x + 1, this.y - 1],
-            [this.x + 1, this.y],
-            [this.x + 1, this.y + 1],
-            [this.x + 1, this.y + 2],
-            [this.x + 2, this.y - 2],
-            [this.x + 2, this.y - 1],
-            [this.x + 2, this.y],
-            [this.x + 2, this.y + 1],
-            [this.x + 2, this.y + 2],
-        ];
-    }
-    yntrelVandak(ch) {
-        this.stanalNorKordinatner();
-        var found = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == ch) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
-    }
-    yntrelVorsiVandak(ch) {
-        this.stanalVorsiKordinatner();
-        var found = [];
-        for (var i in this.huntDirections) {
-            var x = this.huntDirections[i][0];
-            var y = this.huntDirections[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == ch) {
-                    found.push(this.huntDirections[i]);
-                }
-            }
-        }
-        return found;
-    }
     hunt() {
         this.huntmulti++;
-        var gishPoint = random(this.yntrelVorsiVandak(3));
+        var gishPoint = random(this.yntrelVandak2(3));
         if (this.huntmulti >= 5 && gishPoint) {
             matrix[gishPoint[1]][gishPoint[0]] = 0;
             for (var i in gisharr) {
@@ -144,7 +38,7 @@ class Hunter {
     }
     squibbing() {
         this.squibmulti++;
-        var randxotkr = random(this.yntrelVorsiVandak(2));
+        var randxotkr = random(this.yntrelVandak(2));
         if (this.squibmulti >= 20 && randxotkr) {
             matrix[randxotkr[1]][randxotkr[0]] = 5
             for (var i in xotakerarr) {
