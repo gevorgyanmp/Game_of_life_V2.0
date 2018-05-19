@@ -1,0 +1,16 @@
+{
+  "name": "lesson_4",
+  "version": "1.0.0",
+  "description": "DOM and Sockets",
+  "main": "\u001b[D\u001b[script.js)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Martin\u001b[A\u001b[B",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "socket.io": "^2.1.0"
+  }
+}

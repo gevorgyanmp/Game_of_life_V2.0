@@ -18,12 +18,12 @@ var app = express();
 // });
 
 
-app.use(express.static("./"))
+app.use(express.static("public"))
 
 
 app.get("/", function(req,res)
 {
-    res.redirect("index.js")
+    res.redirect("index.html")
 });
 
 app.listen(3000, function(){
